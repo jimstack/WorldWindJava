@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>WorldWindJava</name>
+  <groupId>gov.nasa.worldwind</groupId>
+  <artifactId>WorldwindJava</artifactId>
+  <packaging>jar</packaging>
+  <version>2.1.0</version>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <build>
+    <pluginManagement>      <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+          <executions>
+            <execution>
+              <id>executable pom jogl-all</id>
+              <phase>package</phase>
+              <goals>
+                <goal>deploy-file</goal>
+              </goals>
+              <inherited>false</inherited>
+              <configuration>
+                <repositoryId>snapshots</repositoryId>
+                <groupId>org.jogamp.jogl</groupId>
+                <artifactId>jogl-all</artifactId>
+                <version>${project.version}</version>
+                <packaging>jar</packaging>
+                <file>
+                                ${basedir}/dependencies/jogl-all.jar
+                </file>
+                <url>http://localhost:8080/nexus-2.6.4-02/content/repositories/snapshots/</url>
+              </configuration>
+            </execution>
+
+            <execution>
+              <id>executable pom jogl-all-natives-linux-amd64</id>
+              <phase>package</phase>
+              <goals>
+                <goal>deploy-file</goal>
+              </goals>
+              <inherited>false</inherited>
+              <configuration>
+                <repositoryId>snapshots</repositoryId>
+                <groupId>org.jogamp.jogl</groupId>
+                <artifactId>jogl-all</artifactId>
+                <version>${project.version}</version>
+                <classifier>natives-linux-amd64</classifier>
+                <packaging>jar</packaging>
+                <file>
+                                ${basedir}/dependencies/jogl-all-natives-linux-amd64.jar
+                </file>
+                <url>http://localhost:8080/nexus-2.6.4-02/content/repositories/snapshots/</url>
+              </configuration>
+            </execution>
+
+            <execution>
+              <id>executable pom jogl-all-natives-windows-amd64</id>
+              <phase>package</phase>
+              <goals>
+                <goal>deploy-file</goal>
+              </goals>
+              <inherited>false</inherited>
+              <configuration>
+                <repositoryId>snapshots</repositoryId>
+                <groupId>org.jogamp.jogl</groupId>
+                <artifactId>jogl-all</artifactId>
+                <version>${project.version}</version>
+                <classifier>natives-windows-amd64</classifier>
+                <packaging>jar</packaging>
+                <file>
+                                ${basedir}/dependencies/jogl-all-natives-windows-amd64.jar
+                </file>
+                <url>http://localhost:8080/nexus-2.6.4-02/content/repositories/snapshots/</url>
+              </configuration>
+            </execution>
+
+            <execution>
+              <id>executable pom gdal</id>
+              <phase>package</phase>
+              <goals>
+                <goal>deploy-file</goal>
+              </goals>
+              <inherited>false</inherited>
+              <configuration>
+                <repositoryId>snapshots</repositoryId>
+                <groupId>org.jogamp.gdal</groupId>
+                <artifactId>gdal</artifactId>
+                <version>${project.version}</version>
+                <packaging>jar</packaging>
+                <file>
+                                ${basedir}/dependencies/gdal.jar
+                </file>
+                <url>http://localhost:8080/nexus-2.6.4-02/content/repositories/snapshots/</url>
+              </configuration>
+            </execution>
+
+            <execution>
+              <id>executable pom gluegen-rt</id>
+              <phase>package</phase>
+              <goals>
+                <goal>deploy-file</goal>
+              </goals>
+              <inherited>false</inherited>
+              <configuration>
+                <repositoryId>snapshots</repositoryId>
+                <groupId>org.jogamp.gluegen</groupId>
+                <artifactId>gluegen-rt</artifactId>
+                <version>${project.version}</version>
+                <packaging>jar</packaging>
+                <file>
+                                ${basedir}/dependencies/gluegen-rt.jar
+                </file>
+                <url>http://localhost:8080/nexus-2.6.4-02/content/repositories/snapshots/</url>
+              </configuration>
+            </execution>
+
+            <execution>
+              <id>executable pom gluegen-rt-natives-linux-amd64</id>
+              <phase>package</phase>
+              <goals>
+                <goal>deploy-file</goal>
+              </goals>
+              <inherited>false</inherited>
+              <configuration>
+                <repositoryId>snapshots</repositoryId>
+                <groupId>org.jogamp.gluegen</groupId>
+                <artifactId>gluegen-rt</artifactId>
+                <version>${project.version}</version>
+                <classifier>natives-linux-amd64</classifier>
+                <packaging>jar</packaging>
+                <file>
+                                ${basedir}/dependencies/gluegen-rt-natives-linux-amd64.jar
+                </file>
+
+                <!--                            <finalName>gluegen-rt-natives-linux-amd64.jar</finalName>                   -->
+
+                <url>http://localhost:8080/nexus-2.6.4-02/content/repositories/snapshots/</url>
+              </configuration>
+            </execution>
+            <execution>
+              <id>executable pom gluegen-rt-natives-windows-amd64</id>
+              <phase>package</phase>
+              <goals>
+                <goal>deploy-file</goal>
+              </goals>
+              <inherited>false</inherited>
+              <configuration>
+                <repositoryId>snapshots</repositoryId>
+                <groupId>org.jogamp.gluegen</groupId>
+                <artifactId>gluegen-rt</artifactId>
+                <version>${project.version}</version>
+                <classifier>natives-windows-amd64</classifier>
+                <packaging>jar</packaging>
+                <file>
+                                ${basedir}/dependencies/gluegen-rt-natives-windows-amd64.jar
+                </file>
+                <url>http://localhost:8080/nexus-2.6.4-02/content/repositories/snapshots/</url>
+              </configuration>
+            </execution>
+
+            <execution>
+              <id>executable pom gluegen-rt-natives-windows-i586</id>
+              <phase>package</phase>
+              <goals>
+                <goal>deploy-file</goal>
+              </goals>
+              <inherited>false</inherited>
+              <configuration>
+                <repositoryId>snapshots</repositoryId>
+                <groupId>org.jogamp.gluegen</groupId>
+                <artifactId>gluegen-rt</artifactId>
+                <version>${project.version}</version>
+                <classifier>natives-windows-i586</classifier>
+                <packaging>jar</packaging>
+                <!--pomFile>${basedir}/dependencies/gluegen-rt-natives-windows-i586.pom</pomFile-->
+                <file>
+                                ${basedir}/dependencies/gluegen-rt-natives-windows-i586.jar
+                </file>
+
+                <url>http://localhost:8080/nexus-2.6.4-02/content/repositories/snapshots/</url>
+              </configuration>
+            </execution>
+
+            <execution>
+              <id>executable pom jre plugin </id>
+              <phase>package</phase>
+              <goals>
+                <goal>deploy-file</goal>
+              </goals>
+              <inherited>false</inherited>
+              <configuration>
+                <repositoryId>snapshots</repositoryId>
+                <groupId>netscape.javascript</groupId>
+                <artifactId>JSObject</artifactId>
+                <version>${project.version}</version>
+                <packaging>jar</packaging>
+                <file>
+                                ${basedir}/dependencies/plugin.jar
+                </file>
+                <url>http://localhost:8080/nexus-2.6.4-02/content/repositories/snapshots/</url>
+              </configuration>
+            </execution>
+
+            <execution>
+              <id>executable pom vpf-symbols </id>
+              <phase>package</phase>
+              <goals>
+                <goal>deploy-file</goal>
+              </goals>
+              <inherited>false</inherited>
+              <configuration>
+                <repositoryId>snapshots</repositoryId>
+                <groupId>org.vpf-symbols</groupId>
+                <artifactId>vpf-symbols</artifactId>
+                <version>${project.version}</version>
+                <packaging>jar</packaging>
+                <file>
+                                ${basedir}/dependencies/vpf-symbols.jar
+                </file>
+                <url>http://localhost:8080/nexus-2.6.4-02/content/repositories/snapshots/</url>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.7.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <dependencies>
+      <dependency>
+          <groupId>org.jogamp.gluegen</groupId>
+          <artifactId>gluegen-rt-main</artifactId>
+          <version>2.3.2</version>
+      </dependency>
+      <dependency>
+          <groupId>org.jogamp.jogl</groupId>
+          <artifactId>jogl-all-main</artifactId>
+          <version>2.3.2</version>
+      </dependency>
+  </dependencies>
+</project>
