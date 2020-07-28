@@ -174,7 +174,7 @@ public class TrackController {
         Path airPath = new Path(track);
         airPath.setOffset(track.getOffset());
         airPath.setPathType(AVKey.RHUMB_LINE);
-        var attrs = new BasicShapeAttributes();
+        BasicShapeAttributes attrs = new BasicShapeAttributes();
         attrs.setOutlineMaterial(new Material(track.getColor()));
         airPath.setAttributes(attrs);
 
